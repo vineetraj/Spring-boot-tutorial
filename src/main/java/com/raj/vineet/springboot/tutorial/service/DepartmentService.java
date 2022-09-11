@@ -4,6 +4,7 @@ package com.raj.vineet.springboot.tutorial.service;
  * */
 
 import com.raj.vineet.springboot.tutorial.entity.Department;
+import com.raj.vineet.springboot.tutorial.error.DepartmentNotFoundException;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface DepartmentService {
 
     public Department saveDepartment(Department department);
 
-    public Department fetchDepartmentById(Long departmentId);
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     public void deleteDepartmentById(Long departmentId);
 
