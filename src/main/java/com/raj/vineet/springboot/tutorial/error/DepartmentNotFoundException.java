@@ -1,5 +1,5 @@
 package com.raj.vineet.springboot.tutorial.error;
-
+//creating a custom exception class
 public class DepartmentNotFoundException extends Exception {
     public DepartmentNotFoundException() {
         super();

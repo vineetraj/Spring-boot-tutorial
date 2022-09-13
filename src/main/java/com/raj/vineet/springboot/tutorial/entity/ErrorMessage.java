@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
-
+//what data we want to send back, that we will define here
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ErrorMessage {
-    private HttpStatus status;
-    private String message;
+    private HttpStatus status; //like 500 ,400
+    private String message; //error message
 }
