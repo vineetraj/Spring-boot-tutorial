@@ -1,4 +1,4 @@
-# springboot-tutorial-app
+# springboot-tutorial
 A Simple Spring boot Application
 
 # Building the project
