@@ -18,12 +18,13 @@ class DepartmentServiceTest {
     private DepartmentService departmentService;
     @MockBean
     private DepartmentRepository departmentRepository;
+
     @BeforeEach
     void setUp() {
         /* Note: Here we could've used constructor/getter-setters to set values in our dept.
         but since we're using builder pattern, so we're passing values like this
         * */
-        Department  department = Department.builder()
+        Department department = Department.builder()
                 .departmentName("CSE")
                 .departmentAddress("Kanpur")
                 .departmentCode("CSE-01")

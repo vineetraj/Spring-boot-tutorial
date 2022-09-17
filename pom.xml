@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.raj.vineet</groupId>
-    <artifactId>Spring-boot-tutorial</artifactId>
+    <artifactId>springboot-tutorial</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Spring-boot-tutorial</name>
-    <description>Demo project for Spring Boot</description>
+    <name>Springboot-tutorial-application</name>
+    <description>A demo project for Spring Boot</description>
     <properties>
         <java.version>17</java.version>
     </properties>
