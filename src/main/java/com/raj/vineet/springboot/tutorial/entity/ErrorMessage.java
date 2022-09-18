@@ -10,6 +10,6 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ErrorMessage {
-    private HttpStatus status; //like 500 ,400
+    private HttpStatus status; //like 500, 400
     private String message; //error message
 }
