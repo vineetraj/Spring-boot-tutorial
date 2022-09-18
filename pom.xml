@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.raj.vineet</groupId>
     <artifactId>springboot-tutorial</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Springboot-tutorial-application</name>
     <description>A demo project for Spring Boot</description>
     <properties>
@@ -36,6 +36,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
