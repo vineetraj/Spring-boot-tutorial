@@ -26,7 +26,7 @@ public class DepartmentController {
     private String welcomeMsg;
 
     @GetMapping("/")
-    public String helloWorld(){
+    public String helloWorld() {
         return welcomeMsg;
     }
 

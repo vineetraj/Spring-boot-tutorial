@@ -1,7 +1,6 @@
 package com.raj.vineet.springboot.tutorial.controller;
 
 import com.raj.vineet.springboot.tutorial.entity.Department;
-import com.raj.vineet.springboot.tutorial.error.DepartmentNotFoundException;
 import com.raj.vineet.springboot.tutorial.service.DepartmentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,11 +10,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(DepartmentController.class)
 class DepartmentControllerTest {
@@ -28,6 +27,7 @@ class DepartmentControllerTest {
     //since from controller, we hit service layer. so creating fake service bean
 
     private Department department;
+
     @BeforeEach
     void setUp() {
         /* this is output object..i.e. fake output which our func returns */
@@ -52,12 +52,12 @@ class DepartmentControllerTest {
                 .thenReturn(department);
 
         mockMvc.perform(post("/departments")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\n" +
-                        "    \"departmentName\":\"chemical\",\n" +
-                        "    \"departmentAddress\":\"Chennai\",\n" +
-                        "    \"departmentCode\":\"CE-06\"\n" +
-                        "}"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\n" +
+                                "    \"departmentName\":\"chemical\",\n" +
+                                "    \"departmentAddress\":\"Chennai\",\n" +
+                                "    \"departmentCode\":\"CE-06\"\n" +
+                                "}"))
                 .andExpect(status().isOk());
     }
 
@@ -68,7 +68,7 @@ class DepartmentControllerTest {
 
         //calling the GET method
         mockMvc.perform(get("/departments/1")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.departmentName") //kya json se mila dept name
                         .value(department.getDepartmentName())); //is matching with actual dept name
