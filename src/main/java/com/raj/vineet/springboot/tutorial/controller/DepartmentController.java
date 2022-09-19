@@ -6,6 +6,10 @@ package com.raj.vineet.springboot.tutorial.controller;
 import com.raj.vineet.springboot.tutorial.entity.Department;
 import com.raj.vineet.springboot.tutorial.error.DepartmentNotFoundException;
 import com.raj.vineet.springboot.tutorial.service.DepartmentService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +29,15 @@ public class DepartmentController {
     @Value("${welcome.message}")
     private String welcomeMsg;
 
+    @Operation(summary = "This is just a hello world endpoint")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "If you're getting this, then the app is running",
+                    content = {@Content(mediaType = "application/json")}),
+            @ApiResponse(responseCode = "404",
+                    description = "The application is down",
+                    content = @Content)
+    })
     @GetMapping("/")
     public String helloWorld() {
         return welcomeMsg;
